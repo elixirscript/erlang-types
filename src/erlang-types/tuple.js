@@ -1,6 +1,5 @@
 class Tuple {
-
-  constructor(...args){
+  constructor(...args) {
     this.values = Object.freeze(args);
     this.length = this.values.length;
   }
@@ -18,19 +17,23 @@ class Tuple {
   }
 
   toString() {
-    var i, s = "";
+    let i,
+      s = '';
     for (i = 0; i < this.values.length; i++) {
-      if (s !== "") {
-        s += ", ";
+      if (s !== '') {
+        s += ', ';
       }
-      s += this.values[i].toString();
+
+      const stringToAppend = this.values[i] ? this.values[i].toString() : '';
+
+      s += stringToAppend;
     }
 
-    return "{" + s + "}";
+    return '{' + s + '}';
   }
 
-  put_elem(index, elem){
-    if(index === this.length){
+  put_elem(index, elem) {
+    if (index === this.length) {
       let new_values = this.values.concat([elem]);
       return new Tuple(...new_values);
     }
@@ -40,12 +43,11 @@ class Tuple {
     return new Tuple(...new_values);
   }
 
-  remove_elem(index){
+  remove_elem(index) {
     let new_values = this.values.concat([]);
     new_values.splice(index, 1);
     return new Tuple(...new_values);
   }
-
 }
 
 export default Tuple;

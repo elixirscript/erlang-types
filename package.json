@@ -1,6 +1,6 @@
 {
   "name": "erlang-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of primitive types from erlang",
   "main": "lib/erlang-types.js",
   "jsnext:main": "src/index.js",
