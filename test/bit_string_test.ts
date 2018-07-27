@@ -1,9 +1,7 @@
 import 'mocha'
-import ErlangTypes from '../src/index'
+import {BitString} from '../src/index'
 import chai from 'chai'
 const expect = chai.expect
-
-const BitString = ErlangTypes.BitString
 
 describe('BitString', function() {
   describe('creation', function() {

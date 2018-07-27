@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc --declaration",
+    "build": "tsc",
     "test": "mocha test --recursive --require ts-node/register ./test/*_test.ts"
   },
   "repository": {

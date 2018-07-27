@@ -3,7 +3,7 @@ import PID from './erlang-types/pid'
 import Reference from './erlang-types/reference'
 import BitString from './erlang-types/bit_string'
 
-export default {
+export {
   Tuple,
   PID,
   Reference,

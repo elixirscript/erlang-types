@@ -1,9 +1,7 @@
 import 'mocha'
-import ErlangTypes from '../src/index'
+import {Tuple} from '../src/index'
 import chai from 'chai'
 const expect = chai.expect
-
-const Tuple = ErlangTypes.Tuple
 
 describe('Tuple', function() {
   describe('toString', function() {
