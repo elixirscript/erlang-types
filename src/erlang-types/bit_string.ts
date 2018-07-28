@@ -1,9 +1,8 @@
-class BitString {
+export class BitString {
   value: number[]
   length: number
   bit_size: number
   byte_size: number
-  [x: string]: any
 
   constructor(...args: any[]) {
     this.value = Object.freeze(this.process(args)) as number[]
@@ -43,19 +42,19 @@ class BitString {
     return '<<' + s + '>>'
   }
 
-  process(bitStringParts: any[]): number[] {
+  private process(bitStringParts: any[]): number[] {
     let processed_values: number[] = []
 
     var i
     for (i = 0; i < bitStringParts.length; i++) {
-      const functionName = 'process_' + bitStringParts[i].type
+      const functionName: string = 'process_' + bitStringParts[i].type
 
-      let processed_value = this[functionName](bitStringParts[i])
+      let processed_value = (<any>this)[functionName](bitStringParts[i])
 
       for (let attr of bitStringParts[i].attributes) {
         const functionName = 'process_' + attr
 
-        processed_value = this[functionName](processed_value)
+        processed_value = (<any>this)[functionName](processed_value)
       }
 
       processed_values = processed_values.concat(processed_value)
@@ -64,11 +63,11 @@ class BitString {
     return processed_values
   }
 
-  process_integer(value: any): number {
+  private process_integer(value: any): number {
     return value.value
   }
 
-  process_float(value: any): number[] {
+  private process_float(value: any): number[] {
     if (value.size === 64) {
       return BitString.float64ToBytes(value.value)
     } else if (value.size === 32) {
@@ -78,51 +77,51 @@ class BitString {
     throw new Error('Invalid size for float')
   }
 
-  process_bitstring(value: any): number[] {
+  private process_bitstring(value: any): number[] {
     return value.value.value
   }
 
-  process_binary(value: any): number[] {
+  private process_binary(value: any): number[] {
     return BitString.toUTF8Array(value.value)
   }
 
-  process_utf8(value: any): number[] {
+  private process_utf8(value: any): number[] {
     return BitString.toUTF8Array(value.value)
   }
 
-  process_utf16(value: any): number[] {
+  private process_utf16(value: any): number[] {
     return BitString.toUTF16Array(value.value)
   }
 
-  process_utf32(value: any): number[] {
+  private process_utf32(value: any): number[] {
     return BitString.toUTF32Array(value.value)
   }
 
-  process_signed(value: any): number {
+  private process_signed(value: any): number {
     return new Uint8Array([value])[0]
   }
 
-  process_unsigned(value: any): number[] {
+  private process_unsigned(value: any): number[] {
     return value
   }
 
-  process_native(value: any): number[] {
+  private process_native(value: any): number[] {
     return value
   }
 
-  process_big(value: any): number[] {
+  private process_big(value: any): number[] {
     return value
   }
 
-  process_little(value: any): number[] {
+  private process_little(value: any): number[] {
     return value.reverse()
   }
 
-  process_size(value: any): number[] {
+  private process_size(value: any): number[] {
     return value
   }
 
-  process_unit(value: any): number[] {
+  private process_unit(value: any): number[] {
     return value
   }
 
@@ -338,5 +337,3 @@ class BitString {
     return bytes
   }
 }
-
-export default BitString

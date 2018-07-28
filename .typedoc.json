@@ -1,0 +1,15 @@
+{
+  "mode": "file",
+  "out": "docs",
+  "exclude": "test",
+  "excludePrivate": true,
+  "excludeNotExported": true,
+  "excludeExternals": true,
+  "listInvalidSymbolLinks": true,
+  "target": "ES5",
+  "moduleResolution": "node",
+  "preserveConstEnums": "true",
+  "stripInternal": "true",
+  "module": "commonjs",
+  "readme": "none"
+}

@@ -1,6 +1,6 @@
 let process_counter = -1
 
-class PID {
+export class PID {
   id: number
 
   constructor() {
@@ -12,5 +12,3 @@ class PID {
     return 'PID#<0.' + this.id + '.0>'
   }
 }
-
-export default PID

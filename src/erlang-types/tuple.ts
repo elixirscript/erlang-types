@@ -1,4 +1,4 @@
-class Tuple {
+export class Tuple {
   values: any[]
   length: number
 
@@ -52,5 +52,3 @@ class Tuple {
     return new Tuple(...new_values)
   }
 }
-
-export default Tuple

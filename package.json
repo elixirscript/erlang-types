@@ -6,7 +6,8 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "mocha test --recursive --require ts-node/register ./test/*_test.ts"
+    "test": "mocha test --recursive --require ts-node/register ./test/*_test.ts",
+    "docs": "typedoc --options .typedoc.json"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
     "ts-node": "^7.0.0",
+    "typedoc": "^0.11.1",
     "typescript": "^2.9.2"
   }
 }
